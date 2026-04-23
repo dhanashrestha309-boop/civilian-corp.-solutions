@@ -3,24 +3,24 @@ import { Reveal } from "./Reveal";
 
 const faqs = [
   {
-    q: "Are these settings safe to use?",
-    a: "100% safe. We only deliver in-game sensitivity values and device optimizer files. No mods, no hacks, no bans — ever.",
+    q: "Is this safe? Will my account get banned?",
+    a: "100% safe. We tune in-game settings and device performance — no mods, no scripts, no hacks. Garena-friendly.",
   },
   {
-    q: "What devices are supported?",
-    a: "We tune for Android, iOS, and emulator. Just tell us your model in the order form and we'll customise the files.",
+    q: "How fast will I get my pack?",
+    a: "Within 24 hours after order confirmation. Most heroes get theirs within a few hours.",
   },
   {
-    q: "How fast is delivery?",
-    a: "Most orders are delivered within 2–6 hours. Ultimate Bundle gets priority delivery (under 1 hour).",
+    q: "Which devices are supported?",
+    a: "Android & iOS, low to flagship tiers. We custom-tune for your exact device model.",
   },
   {
     q: "Do you offer refunds?",
-    a: "If the files don't work on your device, we'll re-tune them for free or refund 100%. Just message us within 7 days.",
+    a: "If your sensi doesn't improve your performance after a fair test, we'll re-tune it free or refund your purchase.",
   },
   {
-    q: "Can I get updates after buying?",
-    a: "Ultimate Bundle includes lifetime updates whenever the game patches. Other packs can upgrade for a small fee.",
+    q: "Can I upgrade later?",
+    a: "Of course! Pay only the difference and we'll swing you up to the next tier.",
   },
 ];
 
@@ -28,14 +28,14 @@ export function Faq() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="relative py-28 px-6">
+    <section id="faq" className="relative py-20 sm:py-28 px-4 sm:px-6">
       <div className="max-w-3xl mx-auto">
-        <Reveal className="text-center mb-16">
-          <span className="inline-block text-xs tracking-[0.4em] text-primary font-semibold mb-4">
-            // FAQ
-          </span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
-            Quick <span className="gradient-text">answers</span>
+        <Reveal className="text-center mb-12 sm:mb-16">
+          <div className="inline-block bg-accent text-accent-foreground font-display px-4 py-1.5 rounded-lg comic-border text-sm rotate-[-2deg] mb-4">
+            QUESTIONS?
+          </div>
+          <h2 className="text-4xl sm:text-5xl font-display">
+            Spider-<span className="gradient-text">FAQ</span>
           </h2>
         </Reveal>
 
@@ -46,16 +46,16 @@ export function Faq() {
               <Reveal key={f.q} delay={i * 80}>
                 <div
                   className={`glass-card rounded-xl overflow-hidden transition-all ${
-                    isOpen ? "ring-1 ring-primary/40" : ""
+                    isOpen ? "ring-2 ring-primary/50" : ""
                   }`}
                 >
                   <button
                     onClick={() => setOpen(isOpen ? null : i)}
                     className="w-full flex items-center justify-between p-5 text-left"
                   >
-                    <span className="font-medium">{f.q}</span>
+                    <span className="font-display text-base sm:text-lg pr-4">{f.q}</span>
                     <span
-                      className={`w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary transition-transform duration-300 ${
+                      className={`w-8 h-8 rounded-full bg-primary/15 flex items-center justify-center text-primary transition-transform duration-300 flex-shrink-0 ${
                         isOpen ? "rotate-45" : ""
                       }`}
                     >
