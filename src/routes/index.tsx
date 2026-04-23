@@ -1,26 +1,48 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SiteHeader } from "@/components/SiteHeader";
+import { Hero } from "@/components/Hero";
+import { Stats } from "@/components/Stats";
+import { Packages } from "@/components/Packages";
+import { HowItWorks } from "@/components/HowItWorks";
+import { Testimonials } from "@/components/Testimonials";
+import { Faq } from "@/components/Faq";
+import { ContactSection } from "@/components/ContactSection";
+import { Footer } from "@/components/Footer";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Civilians Corp. Ltd — Pro Free Fire Sensitivity & Optimizer Packs" },
+      {
+        name: "description",
+        content:
+          "Premium Free Fire sensitivity profiles and device optimizer packages tuned by pros. Boost aim, reduce latency, and dominate ranked.",
+      },
+      { property: "og:title", content: "Civilians Corp. Ltd — Pro Free Fire Tuning" },
+      {
+        property: "og:description",
+        content:
+          "Pro-tuned sensitivity & optimizer packs for Free Fire. Headshots, lower latency, ranked dominance.",
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
+function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background text-foreground">
+      <SiteHeader />
+      <main>
+        <Hero />
+        <Stats />
+        <Packages />
+        <HowItWorks />
+        <Testimonials />
+        <Faq />
+        <ContactSection />
+      </main>
+      <Footer />
     </div>
   );
-}
-
-function Index() {
-  return <PlaceholderIndex />;
 }
